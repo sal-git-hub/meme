@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practical 12 - Event Handling</title>
+    <style>
+        img {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<h1 id="heading">Event Handling Example</h1>
+
+<!-- onclick event -->
+<button onclick="changeText()">Click Me</button>
+
+<br><br>
+
+<!-- onmouseover event -->
+<p onmouseover="hoverEffect()">Hover over this text</p>
+
+<br><br>
+
+<!-- Slideshow -->
+<h3>Image Slideshow</h3>
+<img id="slide" src="https://via.placeholder.com/300x200?text=Image1">
+
+<script>
+    // -------- onclick --------
+    function changeText() {
+        document.getElementById("heading").innerHTML = "Button Clicked!";
+    }
+
+    // -------- onmouseover --------
+    function hoverEffect() {
+        document.getElementById("heading").style.color = "red";
+    }
+
+    // -------- Image Slideshow --------
+    let images = [
+        "https://static.boredpanda.com/blog/wp-content/uploads/2025/10/funny-cat-memes-go-hard-cover_675.jpg",
+        "https://preview.redd.it/post-the-best-cat-memes-you-got-in-the-comments-please-v0-kg82lbnu0ste1.png?auto=webp&s=e6f9eee86484f5de3f4e31f3c33b2d07fb982bd5",
+        "https://media.tenor.com/cRTQk6N_FxMAAAAM/swag-cat-swagbilli-cutecat-cats-cat-swag-ok-yooo-yo.gif"
+    ];
+
+    let index = 0;
+
+    function changeImage() {
+        document.getElementById("slide").src = images[index];
+        index = (index + 1) % images.length;
+    }
+
+    // setInterval for slideshow
+    setInterval(changeImage, 2000);
+
+    // setTimeout example
+    setTimeout(() => {
+        alert("Slideshow started!");
+    }, 1000);
+</script>
+
+</body>
+</html>
